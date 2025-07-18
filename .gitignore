@@ -1,1 +1,11 @@
+# python environment
 /env
+
+# Hide private keys
+/keys/*
+!/keys/README.md
+
+# python
+/*_cache
+/*/__pycache__/
+__pycache__/

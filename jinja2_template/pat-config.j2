@@ -1,0 +1,16 @@
+{% for port in inside %}
+interface {{ port }}
+ ip nat inside
+{% endfor %}
+{% for port in outside %}
+interface {{ port }}
+ ip nat outside
+{% endfor %}
+
+{% for permit in permits %}
+access-list 1 permit {{ permit.ip }} {{ permit.subnet }}
+{% endfor %}
+
+{% for port in outside %}
+ip nat inside source list 1 interface {{ port }} vrf control-data overload
+{% endfor %}

@@ -1,0 +1,7 @@
+vlan {{ vlanID }}
+ name {{ name }}
+   
+{% for port in ports %}
+interface {{ port }}
+ switchport access vlan {{ vlanID }}
+{% endfor %}

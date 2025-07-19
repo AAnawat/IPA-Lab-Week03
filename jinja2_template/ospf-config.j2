@@ -1,0 +1,12 @@
+router ospf 1 vrf control-data
+{% for ip in ip_addresses %}
+ network {{ ip }} 0.0.0.0 area 0
+{% endfor %}
+{% if passive %}
+{% for ip in passive %}
+ passive {{ ip }}
+{% endfor %}
+{% endif %}
+{% if default_route %}
+ default-information originate
+{% endif %}

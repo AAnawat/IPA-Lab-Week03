@@ -1,0 +1,10 @@
+access-list 101 permit tcp 10.30.6.0 0.0.0.255 any eq 22
+{% for ip in ip_addresses %}
+access-list 101 deny tcp any host {{ ip }} eq 22
+{% endfor %}
+access-list 101 permit ip any any
+
+{% for port in ports %}
+interface {{ port }}
+ ip access-group 101 in
+{% endfor %}

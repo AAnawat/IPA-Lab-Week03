@@ -34,7 +34,7 @@ def test_router2():
                 assert port['description'] == 'Connect to G0/1 of S1'
                 continue
             case "Gi0/3":
-                assert port['description'] == 'Connect to NAT'
+                assert port['description'] == 'Connect to WAN'
             case _:
                 continue
 
